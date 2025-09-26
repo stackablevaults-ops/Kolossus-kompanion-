@@ -1,0 +1,17 @@
+# Development files
+.DS_Store
+*.log
+*.tmp
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# Server files
+node_modules/
+*.pid
+
+# Temporary files
+/tmp/
+temp/

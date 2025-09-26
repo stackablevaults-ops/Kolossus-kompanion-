@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolossus Kompanion - Apocalypse Survival Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #2c1810, #8B4513);
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+        
+        #gameContainer {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        #gameCanvas {
+            background: linear-gradient(to bottom, #ff6b35, #2c1810);
+            display: block;
+            cursor: crosshair;
+        }
+        
+        #ui {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 300px;
+        }
+        
+        #companionPanel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 100;
+            background: rgba(44, 24, 16, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            width: 250px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .companion {
+            background: rgba(139, 69, 19, 0.8);
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ff6b35;
+        }
+        
+        .meteors {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 50;
+        }
+        
+        .meteor {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffff00;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ff6b35;
+        }
+        
+        #gameStats {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        
+        <div id="ui">
+            <h3>🌍 Kolossus Kompanion</h3>
+            <div>Survivors: <span id="survivorCount">1</span></div>
+            <div>Food: <span id="foodCount">100</span></div>
+            <div>Water: <span id="waterCount">100</span></div>
+            <div>Companions: <span id="companionCount">0</span>/200000</div>
+            <div>Day: <span id="dayCount">1</span></div>
+            <button onclick="game.startHunting()">🏹 Hunt</button>
+            <button onclick="game.startFishing()">🎣 Fish</button>
+            <button onclick="game.searchCompanions()">🔍 Search for Companions</button>
+        </div>
+        
+        <div id="companionPanel">
+            <h4>🐾 Your Companions</h4>
+            <div id="companionList"></div>
+        </div>
+        
+        <div class="meteors" id="meteors"></div>
+        
+        <div id="gameStats">
+            <div>Apocalypse Level: <span id="apocalypseLevel">Rising</span></div>
+            <div>Meteor Threat: <span id="meteorThreat">Low</span></div>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+    <script src="js/companions.js"></script>
+    <script src="js/survival.js"></script>
+    <script src="js/environment.js"></script>
+</body>
+</html>
