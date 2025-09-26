@@ -1,0 +1,86 @@
+/* Additional game styles */
+.crosshair {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    z-index: 50;
+}
+
+.crosshair::before,
+.crosshair::after {
+    content: '';
+    position: absolute;
+    background: #ff6b35;
+    box-shadow: 0 0 4px rgba(0,0,0,0.8);
+}
+
+.crosshair::before {
+    top: 9px;
+    left: 0;
+    width: 20px;
+    height: 2px;
+}
+
+.crosshair::after {
+    top: 0;
+    left: 9px;
+    width: 2px;
+    height: 20px;
+}
+
+.interaction-prompt {
+    position: fixed;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ff6b35;
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 16px;
+    pointer-events: none;
+    z-index: 200;
+    display: none;
+}
+
+.companion-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(45deg, #2c5f2d, #4a7c59);
+    border: 3px solid #97bc62;
+    border-radius: 12px;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    z-index: 300;
+    display: none;
+    box-shadow: 0 0 20px rgba(151, 188, 98, 0.5);
+}
+
+.companion-alert h2 {
+    margin: 0 0 10px 0;
+    color: #97bc62;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.companion-discovered {
+    animation: slideInScale 0.5s ease-out;
+}
+
+@keyframes slideInScale {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
