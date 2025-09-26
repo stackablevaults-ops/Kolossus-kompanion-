@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { World } from 'cannon-es';
+import * as CANNON from 'cannon-es';
 import { TerrainSystem } from '../systems/TerrainSystem.js';
 import { CompanionSystem } from '../systems/CompanionSystem.js';
 import { PlayerController } from '../systems/PlayerController.js';
@@ -145,7 +145,7 @@ export class Game {
     initPhysics() {
         this.world = new World();
         this.world.gravity.set(0, -9.82, 0);
-        this.world.broadphase = new THREE.SAPBroadphase();
+        this.world.broadphase = new CANNON.SAPBroadphase();
         this.world.allowSleep = true;
         
         // Ground material
